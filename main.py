@@ -1,17 +1,15 @@
-class Book:
-    def __init__(self, title, author, years, famous):
-        self.title = title
-        self.author = author
-        self.years = years
-        self.famous = famous
-#Виводемо інформацію
-    def display_info(self):
-        print(f"title: {self.title}, author: {self.author}, years: {self.years}, famous: {self.famous}")
+class Kyiv:
+      def __init__(self, title, years, famous, peoples):
+          self.title = title
+          self.years = years
+          self.famous = famous
+          self.peoples = peoples
+#Enter information
+      def display_info(self):
+          print(f"title: {self.title}, years: {self.years}, famous: {self.famous}, peoples: {self.peoples}")
 
-#Створення самого класу з даними
-book1 = Book("48 laws of power", "Robert Green", 2021, True)
-book1.display_info()
-
+kiew1 = Kyiv("Kyiv", 482, True, "1 milion")
+kiew1.display_info()
 
 
 
