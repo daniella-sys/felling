@@ -1,15 +1,13 @@
-from pytube import YouTube
+class Book:
+    def __init__(self, title, author, years, famous):
+        self.title = title
+        self.author = author
+        self.years = years
+        self.famous = famous
+#Виводемо інформацію
+    def display_info(self):
+        print(f"title: {self.title}, author: {self.author}, years: {self.years}, famous: {self.famous}")
 
-def download_video(url):
-    try:
-        yt = YouTube(url)
-        stream = yt.streams.get_highest_resolution()
-        stream.download()
-        print("Завантаження завершено!")
-    except Exception as e:
-        print(f"Виникла помилка: {e}")
-
-if __name__ == "__main__":
-    video_url = input("Введіть URL відео з YouTube: ")
-    download_video(video_url)
-
+#Створення самого класу з даними
+book1 = Book("48 laws of power", "Robert Green", 2021, True)
+book1.display_info()
