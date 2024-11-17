@@ -1,13 +1,19 @@
-class Book:
-    def __init__(self, title, author, years, famous):
-        self.title = title
-        self.author = author
-        self.years = years
-        self.famous = famous
-#Виводемо інформацію
-    def display_info(self):
-        print(f"title: {self.title}, author: {self.author}, years: {self.years}, famous: {self.famous}")
+import math
+from turtle import *
 
-#Створення самого класу з даними
-book1 = Book("48 laws of power", "Robert Green", 2021, True)
-book1.display_info()
+def hearta(k):
+    return 15 * math.sin(k)**3
+def heartb(k):
+    return 12*math.cos(k)-5*\
+    math.cos(2*k)-2*\
+    math.cos(3*k)-\
+    math.cos(4*k)
+speed(9000)
+bgcolor("black")
+
+for i in range(6000):
+    goto(hearta(i)*20,heartb(i)*20)
+    for j in range(5):
+        color("red")
+        goto(0,0)
+done()
