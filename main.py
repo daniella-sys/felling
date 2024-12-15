@@ -1,22 +1,20 @@
 import requests
+from lxml import html
+#Import libraries
 
-def translate_text(text, target_lang='uk'):
-    url = "https://translate.googleapis.com/translate_a/single"
-    params = {
-        'client': 'gtx',
-        'sl': 'auto',
-        'tl': target_lang,
-        'dt': 't',
-        'q': text
-    }
-    response = requests.get(url, params=params)
-    if response.status_code == 200:
-        translation = response.json()[0][0][0]
-        return translation
-    else:
-        return "Error: Unable to translate text"
+#URL Web-pages
+url = 'https://www.bbc.com/news'
 
-# Використання функції перекладу
-text_to_translate = "Hello, world!"
-translated_text = translate_text(text_to_translate)
-print(translated_text)
+#Send me NTML-code pages
+response = requests.get(url) #Отримуємо посилання
+html_content = response.content
+
+#Парсинг NTML за допомогою lxml
+tree = html.fromstring(html_content)
+
+#Знаходження заголовків
+news_headlines = tree.xpath('//h2[@class="news-title"]/text()')
+
+#Вивід заголовків
+for headline in news_headlines:
+    print(headline)
