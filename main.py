@@ -1,8 +1,10 @@
-import random
-import string
-def generate_password(lengh=8):
-    characters = string.ascii_letters + string.digits + string.punctuation
-    password = ''.join(random.choice(characters)
-                       for _ in range(lengh))
-    return password
-print(generate_password(12))
+import python_weather
+import asyncio
+import os
+
+async def getweather() -> None:
+    async with python_weather.Client(unit=python_weather.IMPERIAL) as client:
+        weather = await client.get('New York')
+        print(weather.temperature)
+        if __name__ == '__main__':
+            asyncio.run(getweather())
