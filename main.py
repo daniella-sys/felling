@@ -1,10 +1,13 @@
-import python_weather
-import asyncio
-import os
+from sympy import symbols, Eq, solve
+def solve_quadratic(a, b, c):
+    x = symbols('x')
+    equation = Eq(a*x**2 + b * x + c, 0)
+    solutions = solve(equation, x)
+    return solutions
+#запускаємо
+a = 1
+b = 3
+c = -9
 
-async def getweather() -> None:
-    async with python_weather.Client(unit=python_weather.IMPERIAL) as client:
-        weather = await client.get('New York')
-        print(weather.temperature)
-        if __name__ == '__main__':
-            asyncio.run(getweather())
+roots = solve_quadratic(a, b, c)
+print(f"Корені рівняння {a}x^2 + {b}x + {c} = 0: {roots}")
